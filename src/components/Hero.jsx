@@ -53,9 +53,9 @@ const Hero = () => {
 
     {/* Handle toggle jobs section */}
 
-    <section className='flex text-white my-5 gap-10 justify-center'>
+    <section className='flex flex-wrap lg:flex-row text-white my-5 gap-10 justify-center'>
         {toggleJobsData.map((item,index)=>(
-            <button onClick={()=>handleToggle(index)} className={`${toggleJobs == index ? "bg-[#0088FF] transition-all duration-700 ease-in-out" : ""} w-[200px] p-3 flex flex-col items-center border border-white text-center rounded-xl`}>
+            <button onClick={()=>handleToggle(index)} className={`${toggleJobs == index ? "bg-[#0088FF] transition-all duration-700 ease-in-out" : ""} w-[200px] p-3 flex flex-col  items-center border border-white text-center rounded-xl`}>
                 {item.icon}
                 <span>{item.title}</span>
                 <span>{jobCount}</span>
