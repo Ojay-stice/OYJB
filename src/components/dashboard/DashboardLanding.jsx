@@ -73,6 +73,24 @@ const [jobCount, setJobCount] = useState(3)
             title:"View Analytics",
         }
     ]
+    //  const quickActionData = [
+    //     {
+    //         icon: <FaPlus />,
+    //         title:"Create Category",
+    //     },
+    //     {
+    //         icon: <FaPlus />,
+    //         title:"Create Sub-Category",
+    //     },
+    //     {
+    //         icon: <BsBriefcase />,
+    //         title:"Create Job",
+    //     },
+    //     {
+    //         icon: <IoStatsChart />,
+    //         title:"View Analytics",
+    //     }
+    // ]
 
   return (
     <section className='flex'>
