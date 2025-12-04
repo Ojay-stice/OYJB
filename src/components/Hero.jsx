@@ -29,6 +29,7 @@ const Hero = () => {
     const [toggleJobs, setToggleJobs] = useState(0)
     const handleToggle = (index)=>{
         setToggleJobs(toggleJobs === index ? null : index)
+        console.log(index)
     }
   return (
     <>
@@ -55,11 +56,15 @@ const Hero = () => {
 
     <section className='flex flex-wrap lg:flex-row text-white my-5 gap-10 justify-center'>
         {toggleJobsData.map((item,index)=>(
-            <button onClick={()=>handleToggle(index)} className={`${toggleJobs == index ? "bg-[#0088FF] transition-all duration-700 ease-in-out" : ""} w-[200px] p-3 flex flex-col  items-center border border-white text-center rounded-xl`}>
-                {item.icon}
-                <span>{item.title}</span>
-                <span>{jobCount}</span>
-            </button>
+           <HeroBtn key={index}
+           handleToggle={()=>handleToggle(index)}
+           toggleJobs={toggleJobs}
+           icon={item.icon}
+           title={item.title}
+           jobCount={jobCount}
+           index={index}
+           className={'w-[200px] p-3 flex flex-col items-center border border-white text-center rounded-xl'}
+            />
         ))}
     </section>
     </>
@@ -67,3 +72,17 @@ const Hero = () => {
 }
 
 export default Hero
+
+
+
+export function HeroBtn({index, handleToggle, toggleJobs, icon, title, jobCount, className, subClass}) {
+  return (
+     <button key={index} onClick={handleToggle} className={`${toggleJobs == index ? "bg-[#0088FF] transition-all duration-700 ease-in-out" : ""}  ${className}`}>
+                {icon}
+                <div className={`${subClass}`}>
+                    <p>{title}</p>
+                    <p>{jobCount}</p>
+                </div>
+            </button>
+  )
+}
