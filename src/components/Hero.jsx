@@ -34,14 +34,14 @@ const Hero = () => {
   return (
     <>
     <section className='px-4'>
-        <div className='lg:w-[671px] container mx-auto border px-2 py-4 my-5 text-white'>
+        <div className='lg:w-[671px] container mx-auto lg:border px-2 py-4 my-5 lg:text-white'>
         <h1 className='text-3xl font-semibold text-center'> Find your dream job</h1>
         <p>Discover verified job opportunities from trusted employers. No registration required - just browse, download, and apply!</p>
     </div>
 
     
-        <form action="" className=' border border-white lg:w-[600px] container mx-auto rounded-md '>
-            <div className='flex justify-between items-center text-white py-3 px-4'>
+        <form action="" className=' border border-[#D0D5DD] lg:border-white lg:w-[600px] container mx-auto rounded-md '>
+            <div className='flex justify-between items-center lg:text-white py-3 px-4'>
                <div className='flex items-center gap-4'>
                  <CiSearch size={26} />
                  <input className='lg:w-[268px]  outline-none ' type="search" placeholder='Search Jobs, Companies,location...'  />
@@ -54,7 +54,7 @@ const Hero = () => {
 
     {/* Handle toggle jobs section */}
 
-    <section className='flex flex-wrap lg:flex-row text-white my-5 gap-10 justify-center'>
+    <section className='flex flex-wrap flex-row lg:text-white mt-10 mb-5 gap-4 lg:gap-10 justify-center'>
         {toggleJobsData.map((item,index)=>(
            <HeroBtn key={index}
            handleToggle={()=>handleToggle(index)}
@@ -63,7 +63,7 @@ const Hero = () => {
            title={item.title}
            jobCount={jobCount}
            index={index}
-           className={'w-[200px] p-3 flex flex-col items-center border border-white text-center rounded-xl'}
+           className={'lg:w-[200px] w-[83.5px] p-3 flex flex-col items-center border border-[#D0D5DD] lg:border-white text-center rounded-xl'}
             />
         ))}
     </section>
