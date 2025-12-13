@@ -24,17 +24,18 @@ const AdminLoginComp = () => {
     setLoginDetails({...loginDetails, [e.target.name]:e.target.value})
     console.log(e.target.name, e.target.value)
   }
+  
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(loginDetails)
+  }
+  
   const handleRoleChange = (item, index)=>{
     setSelectedRole(item.role)
     setLoginDetails({...loginDetails, role:item.role})
     setOpenIndex(openIndex === index ? null : index)
     console.log(item.role)
   
-  }
-
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    console.log(loginDetails)
   }
   return (
     <div className='w-full h-screen '>
