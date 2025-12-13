@@ -7,16 +7,17 @@ import {Link} from 'react-router'
 
 
 
-function JobCard({job}) {
+function JobCard({ job }) {
     const [showDesc, setShowDesc] = useState(false);
 
     let description = job.description;
     if (!showDesc) {
         description = description.substring(0, 100) 
     }
+    
   return (
     
-     <div key={job.id} className='p-4 flex flex-col gap-3 bg-[#192E49] border'>
+     <div  key={job.id} className='p-4 flex flex-col gap-3 bg-[#192E49] container mx-auto my-3 lg:w-[895px] border'>
         <div className='flex justify-between px-4'>
             <div className='text-white'>
                 <p className='text-[20px] font-[500px]'>{job.title}</p>
@@ -25,7 +26,7 @@ function JobCard({job}) {
         
         
             <div className='flex gap-2 text-white'>
-              <p className=' w-[46px] rounded-md h-[25px] p-2 text-[10px] items-center bg-[#135924D6]'>{job.category}</p>
+              <p className=' rounded-md h-[25px] p-2 text-[10px] items-center bg-[#135924D6]'>{job.category || job.type}</p>
               <p>Expires: 12/31/2025</p>
             </div>
         
