@@ -1,45 +1,65 @@
 import React from 'react'
+import { CiLocationOn } from "react-icons/ci";
+import { IoMdTime } from "react-icons/io";
+import { IoMdContacts } from "react-icons/io";
+import { useState } from 'react';
+import {Link} from 'react-router'
 
-const Jobcard = ({ job }) => {
+
+
+function JobCard({job}) {
+    const [showDesc, setShowDesc] = useState(false);
+
+    let description = job.description;
+    if (!showDesc) {
+        description = description.substring(0, 100) 
+    }
   return (
-    <div className="w-full my-2 p-5 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition">
-      
-      {/* Title */}
-      <h2 className="text-lg font-semibold text-gray-900">
-        {job.title}
-      </h2>
+    
+     <div key={job.id} className='p-4 flex flex-col gap-3 bg-[#192E49] border'>
+        <div className='flex justify-between px-4'>
+            <div className='text-white'>
+                <p className='text-[20px] font-[500px]'>{job.title}</p>
+               <h2 className='text-[14px] font-[400px]'>{job.company_name}</h2>
+            </div>
+        
+        
+            <div className='flex gap-2 text-white'>
+              <p className=' w-[46px] rounded-md h-[25px] p-2 text-[10px] items-center bg-[#135924D6]'>{job.category}</p>
+              <p>Expires: 12/31/2025</p>
+            </div>
+        
+        </div>
+         
+         <div className='flex gap-4'>
+            <div className='flex gap-2 items-center text-white text-[18px]'>
+                <CiLocationOn />
+                <p>{job.location}</p>
+            </div>
+            
+            <div className='flex gap-2 items-center text-white text-[18px]'>
+                <IoMdTime />
+                <p>{job.employment_type}</p>
+            </div>
+            
+            <div className='flex gap-2 items-center text-white text-[18px]'>
+                <IoMdContacts />
+                <p>{job.category}</p>
+            </div>
+         </div>
+        
+        <div>
+            <p className='text-white'>{description}</p>
+            {/* <button onClick={()=> setShowDesc(prev=>!prev)} className='text-white cursor-pointer'>{showDesc ? "Less" : "More"}</button> */}
+            
+        </div>
+        <div className='flex items-center justify-between'>
+        <p className='text-white'>{job.salary}</p>
+        <Link to={`/jobs/${job.id}`} className='px-7 py-2 bg-blue-600 cursor-pointer rounded-md' >Download Details</Link>
+        </div>
+    </div> 
+    
+  )
+}
 
-      {/* Company & Location */}
-      <p className="text-sm text-gray-600 mt-1">
-        {job.company} • {job.location}
-      </p>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mt-3">
-        <span className="px-3 py-1 text-xs rounded-full bg-blue-100 text-blue-700">
-          {job.type}
-        </span>
-        <span className="px-3 py-1 text-xs rounded-full bg-green-100 text-green-700">
-          {job.experienceLevel}
-        </span>
-        {job.remote && (
-          <span className="px-3 py-1 text-xs rounded-full bg-purple-100 text-purple-700">
-            Remote
-          </span>
-        )}
-      </div>
-
-      {/* Salary */}
-      <p className="mt-4 text-sm text-gray-800">
-        💰 ${job.salary.toLocaleString()} / year
-      </p>
-
-      {/* Posted Date */}
-      <p className="mt-1 text-xs text-gray-400">
-        Posted on {new Date(job.postedAt).toLocaleDateString()}
-      </p>
-    </div>
-  );
-};
-
-export default Jobcard
+export default JobCard
