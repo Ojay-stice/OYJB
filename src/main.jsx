@@ -3,8 +3,8 @@ import { BrowserRouter, Route , Routes } from 'react-router'
 import Layout from './layout/Layout.jsx'
 import { Home } from './pages/Home.jsx'
 import AdminLoginComp from './components/AdminLoginComp.jsx'
-import DashboardPage from './pages/DashboardPage.jsx'
 import JobDetailedPage from './pages/jobDetailedPage.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
