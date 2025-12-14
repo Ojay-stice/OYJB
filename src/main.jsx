@@ -5,6 +5,7 @@ import { Home } from './pages/Home.jsx'
 import AdminLoginComp from './components/AdminLoginComp.jsx'
 import JobDetailedPage from './pages/jobDetailedPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
+import Signup from './pages/Signup.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
     <Route index element={<Home />}/>
     <Route path='/jobs/:id' element={<JobDetailedPage/>}/>
     <Route path='/login' element={<AdminLoginComp />} />
+    <Route path='/signup' element={<Signup />} />
     </Route>
 
     <Route path='/dashboard' element={<DashboardPage />} />
