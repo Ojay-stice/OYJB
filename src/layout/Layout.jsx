@@ -4,7 +4,7 @@ import { Outlet } from 'react-router'
 
 const Layout = () => {
   return (
-    <div className='bg-[#1c232c] pb-5'>
+    <div className='lg:bg-[#1c232c] bg-white pb-5'>
         <Navbar />
         <Outlet />
     </div>
