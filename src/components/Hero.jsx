@@ -5,7 +5,7 @@ import { IoPeople } from "react-icons/io5";
 import { TbBuildingWarehouse } from "react-icons/tb";
 import { RiGraduationCapLine } from "react-icons/ri";
 import NoJobFound from './NoJobFound';
-import Jobcard from './Jobcard'
+import JobCard from './Jobcard'
 
 
 
@@ -206,7 +206,7 @@ const Hero = () => {
  <div className='px-4'>
         {
             filteredJobs.map((job, index)=>(
-                <Jobcard key={index} job={job} />
+                <JobCard key={index} job={job} />
             ))
         }
        </div>
