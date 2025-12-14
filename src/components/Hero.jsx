@@ -5,7 +5,7 @@ import { IoPeople } from "react-icons/io5";
 import { TbBuildingWarehouse } from "react-icons/tb";
 import { RiGraduationCapLine } from "react-icons/ri";
 import NoJobFound from './NoJobFound';
-// import Jobcard from './Jobcard';
+import Jobcard from './Jobcard'
 
 
 
