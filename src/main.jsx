@@ -6,6 +6,7 @@ import AdminLoginComp from './components/AdminLoginComp.jsx'
 import JobDetailedPage from './pages/jobDetailedPage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import Signup from './pages/Signup.jsx'
+import CreateJobsPage from './pages/CreateJobsPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
     </Route>
 
     <Route path='/dashboard' element={<DashboardPage />} />
+    <Route path='/createjob' element={<CreateJobsPage/>} />
   </Routes>
   </BrowserRouter>
 )

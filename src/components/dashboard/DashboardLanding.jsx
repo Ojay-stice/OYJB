@@ -18,6 +18,7 @@ import { FaXmark } from "react-icons/fa6";
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router'
 import { HeroBtn } from '../Hero';
+import AdminForm from './AdminForm';
 
 
 const DashboardLanding = () => {
@@ -71,6 +72,7 @@ const [jobCount, setJobCount] = useState(3)
         {
             icon: <BsBriefcase />,
             title:"Create Job",
+            url:'/createjob'
         },
         {
             icon: <IoStatsChart />,
@@ -218,9 +220,10 @@ const [jobCount, setJobCount] = useState(3)
                 <h4 className='lg:text-white py-2'>Quick Actions</h4>
                 <div className='flex flex-col lg:flex-row items-center gap-3 text-white'>
                     {quickActionData.map((item, index)=>(
-                        <Link key={index} className='flex items-center gap-3 w-full lg:w-[286px] bg-[#183255] pr-10 pl-5 py-2'>
+                        <Link to={item.url} key={index} className='flex items-center gap-3 w-full lg:w-[286px] bg-[#183255] pr-10 pl-5 py-2'>
                         <span>{item.icon}</span>
                         <span>{item.title}</span>
+                        
                         </Link>
                     ))}
                 </div>
