@@ -9,7 +9,7 @@ import JobCard from "./JobCard";
 
 
 const Hero = () => {
-  const jobs = [
+  const [jobs, setJobs] = useState([
     {
       id: 1,
       title: "Frontend Developer",
@@ -132,7 +132,7 @@ const Hero = () => {
       remote: true,
       postedAt: "2024-12-29",
     },
-  ];
+  ])
 
   const toggleJobsData = [
     {
@@ -152,15 +152,17 @@ const Hero = () => {
       title: "Internship",
     },
   ];
-
-  const jobsCount = {
+    const [filteredJobs, setfilteredJobs] = useState([])
+     const [jobCount, setJobCount] = useState({
     "All Jobs": jobs.length,
     Skilled: jobs.filter((item) => item.type === "Skilled").length,
     Unskilled: jobs.filter((item) => item.type === "Unskilled").length,
     Internship: jobs.filter((item) => item.type === "Internship").length,
-  };
+  })
 
-  // const [jobCount, setJobCount] = useState(0)
+
+
+ 
   const [toggleJobs, setToggleJobs] = useState(0);
   const handleToggle = (index) => {
     setToggleJobs(toggleJobs === index ? null : index);
@@ -168,13 +170,29 @@ const Hero = () => {
   };
   const selectedCategory = toggleJobsData[toggleJobs]?.title;
 
-  const filteredJobs =
+
+  useEffect(() => {
+  const filtered =
     selectedCategory === "All Jobs"
       ? jobs
-      : jobs.filter((job) => job.type === selectedCategory);
+      : jobs.filter(job => job.type === selectedCategory);
 
-  //  const jobCount = jobs.filter(job => job.type === selectedCategory).length
-  //  console.log(jobCount)
+  setfilteredJobs(filtered);
+
+}, [selectedCategory, jobs]);
+
+
+  const [searchValue, setSearchValue] = useState("")
+
+
+  // console.log(searchValue)
+  const handleSearch = (e)=>{
+    e.preventDefault()
+  const  filteredSearch = jobs.filter(item=>item.title.trim().toLowerCase().includes(searchValue.trim().toLowerCase()))
+      setfilteredJobs(filteredSearch)
+      setJobCount(filteredSearch.length)
+    console.log(filteredSearch)
+  }
 
   return (
     <>
@@ -191,19 +209,20 @@ const Hero = () => {
         </div>
 
         <form
+        onSubmit={handleSearch}
           action=""
           className=" border border-[#D0D5DD] lg:border-[#1c232c] lg:w-[600px] container mx-auto rounded-md "
         >
           <div className="flex justify-between items-center  py-3 px-4">
             <div className="flex items-center gap-4">
               <CiSearch size={26} />
-              <input
+              <input onChange={(e)=>setSearchValue(e.target.value)}
                 className="lg:w-[268px]  outline-none "
                 type="search"
                 placeholder="Search Jobs, Companies,location..."
               />
             </div>
-            <button className="px-3 py-2 rounded-md bg-[#0D47A1]">
+            <button type="submit" className="px-3 py-2 rounded-md bg-[#0D47A1]">
               Search
             </button>
           </div>
@@ -220,7 +239,7 @@ const Hero = () => {
             toggleJobs={toggleJobs}
             icon={item.icon}
             title={item.title}
-            jobCount={jobsCount[item.title]}
+            jobCount={jobCount[item.title]}
             index={index}
             className={
               "lg:w-[200px] w-[83.5px] p-3 flex flex-col items-center border border-[#D0D5DD] lg:border-[#1c232c] text-center rounded-xl"
@@ -229,10 +248,15 @@ const Hero = () => {
         ))}
       </section>
 
+      
+
       <div className="px-4">
         {filteredJobs.map((job, index) => (
          <JobCard key={index} job={job} />
         ))}
+
+        
+
       </div>
     </>
   );

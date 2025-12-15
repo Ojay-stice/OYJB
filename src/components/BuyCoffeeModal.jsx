@@ -4,7 +4,7 @@ import { FiCoffee } from "react-icons/fi";
 const BuyCoffeeModal = ({handleShowModal}) => {
     const coffeePrice = [3, 5, 10]
   return (
-    <div className='w-full h-screen backdrop-blur-2xl bg-white/10 absolute top-0 left-0 flex flex-col justify-center items-center'>
+    <div className='w-full h-screen backdrop-blur-2xl bg-white/10 fixed top-0 left-0 flex flex-col justify-center items-center'>
        
 
         <div className='w-[470px] h-[238px] bg-[#CCCCCC] px-2'>

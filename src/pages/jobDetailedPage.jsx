@@ -54,27 +54,27 @@ function JobDetailedPage() {
   return (
     <>
      <section>
-        <h2 className='text-white p-3 text-2xl'>{job.title}</h2>
+        <h2 className='text-black p-3 text-2xl'>{job.title}</h2>
 
-        <p className='text-white text-2xl p-2'>{job.location}</p>
-        <p className='text-white text-2xl p-2'>{job.employment_type}</p>
+        <p className='text-black text-2xl p-2'>{job.location}</p>
+        <p className='text-black text-2xl p-2'>{job.employment_type}</p>
 
-        <div className='text-white p-3'>
+        <div className='text-black p-3'>
             <h3 className='text-[20px]'>About us</h3>
             <p>{job.company_about}</p>
         </div>
 
-        <div className='text-white p-3'>
+        <div className='text-black p-3'>
             <h3 className='text-[20px]'>What you'll do</h3>
             <p>{job.what_they_do}</p>
         </div>
 
-        <div className='text-white p-3'>
+        <div className='text-black p-3'>
             <h3 className='text-[20px]'>What we offer</h3>
             <p>{job.offers}</p>
         </div>
 
-        <div className='text-white p-3'>
+        <div className='text-black p-3'>
             <h3 className='text-[20px]'>Job description</h3>
             <p>{job.description}</p>
         </div>
